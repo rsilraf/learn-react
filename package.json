@@ -1,0 +1,25 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "author": "Daniel Stanzani",
+  "license": "MIT",
+  "description": "Startup Application",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.5.*",
+    "babel-loader": "^6.2.*",
+    "babel-preset-es2015": "^6.5.*",
+    "babel-preset-react": "^6.5.*",
+    "react": "^0.14.*",
+    "react-dom": "^0.14.*",
+    "style-loader": "^0.13.*",
+    "css-loader": "^0.23.*",
+    "webpack": "^1.12.*",
+    "webpack-dev-server": "^1.14.*",
+    "html-webpack-plugin": "^2.8.*"
+  },
+  "scripts": {
+    "start": "node_modules/.bin/webpack-dev-server --hot --inline --progress --colors",
+    "build": "NODE_ENV=production node_modules/.bin/webpack -p --progress --colors"
+  }
+}
