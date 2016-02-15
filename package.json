@@ -19,7 +19,7 @@
     "html-webpack-plugin": "^2.8.*"
   },
   "scripts": {
-    "start": "node_modules/.bin/webpack-dev-server --hot --inline --progress --colors",
+    "start": "webpack-dev-server --progress",
     "build": "NODE_ENV=production node_modules/.bin/webpack -p --progress --colors"
   }
 }

@@ -21,7 +21,7 @@ var config = {
                 // CSS - Styles
                 {
                   test: /\.css$/,
-                  loaders: ['style', 'css'],
+                  loaders: ['style', 'css?modules'],
                   include: PATHS.src
                 },
 
@@ -35,13 +35,24 @@ var config = {
     ]
   },
   plugins: [
+              // Html Index
               new HtmlWebpackPlugin({
                 filename: 'index.html',
                 template: path.join(PATHS.src, 'index.html')
-              })
+              }),
+              // Banner
+              new webpack.BannerPlugin("Daniel Stanzani"),
+              // Hot Module Replacement
+              new webpack.HotModuleReplacementPlugin()
   ],
   debug: true,
-  devtool: 'eval-cheap-module-source-map',
+  devtool: 'eval-source-map',
+  devServer: {
+    contentBase: "./pub",
+    colors: true,
+    historyApiFallback: true,
+    inline: true
+  }
 };
 
 module.exports = config;
