@@ -1,6 +1,7 @@
 var webpack = require('webpack'),
     path = require('path'),
-    HtmlWebpackPlugin = require('html-webpack-plugin');
+    HtmlWebpackPlugin = require('html-webpack-plugin'),
+    ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const PATHS = {
   src: path.join(__dirname, 'src/'),
@@ -21,7 +22,8 @@ var config = {
                 // CSS - Styles
                 {
                   test: /\.css$/,
-                  loaders: ['style', 'css?modules'],
+                  //loaders: ExtractTextPlugin.extract('style', ['style', 'css?modules']),
+                  loader: ExtractTextPlugin.extract('style', 'style!css?modules')
                   include: PATHS.src
                 },
 
@@ -42,18 +44,12 @@ var config = {
               }),
               // Banner
               new webpack.BannerPlugin("Daniel Stanzani"),
-              // Hot Module Replacement
-              new webpack.HotModuleReplacementPlugin()
-  ],
-  debug: true,
-  devtool: 'eval-source-map',
-  devServer: {
-    contentBase: "./pub",
-    colors: true,
-    historyApiFallback: true,
-    inline: true,
-    hot: true
-  }
+              // Uglify + Extract CSS + Order
+              new webpack.optimize.OccurenceOrderPlugin(),
+              new webpack.optimize.UglifyJsPlugin(),
+              new ExtractTextPlugin("style.css"),
+              //new ExtractTextPlugin("[name]-[hash].css")
+  ]
 };
 
 module.exports = config;
