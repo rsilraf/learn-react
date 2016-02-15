@@ -51,7 +51,8 @@ var config = {
     contentBase: "./pub",
     colors: true,
     historyApiFallback: true,
-    inline: true
+    inline: true,
+    hot: true
   }
 };
 
