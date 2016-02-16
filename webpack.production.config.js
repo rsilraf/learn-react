@@ -22,9 +22,9 @@ var config = {
                 // CSS - Styles
                 {
                   test: /\.css$/,
-                  //loaders: ExtractTextPlugin.extract('style', ['style', 'css?modules']),
-                  loader: ExtractTextPlugin.extract('style', 'style!css?modules')
-                  include: PATHS.src
+                  loader: ExtractTextPlugin.extract('style', 'css?modules'),
+                  include: PATHS.src,
+                  exclude: /node_modules/
                 },
 
                 // JSX

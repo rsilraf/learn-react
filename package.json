@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "author": "Daniel Stanzani",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stanzani/learn-react.git"
+  },
   "description": "Startup Application",
   "dependencies": {},
   "devDependencies": {
@@ -23,6 +27,6 @@
   },
   "scripts": {
     "start": "webpack-dev-server --progress",
-    "build": "NODE_ENV=production webpack -config ./webpack.production.config.js -p --progress --colors"
+    "build": "NODE_ENV=production webpack --config ./webpack.production.config.js -p --progress --colors"
   }
 }
